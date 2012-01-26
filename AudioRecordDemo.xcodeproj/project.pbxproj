@@ -22,13 +22,13 @@
 		A5A54BDF14D1D6FD0095193C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A5A54BE114D1D6FD0095193C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A5A54BE314D1D6FD0095193C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A5A54BE714D1D6FD0095193C /* AudioRecordDemo-Info.plist */ = {isa = PBXFileReference; path = "AudioRecordDemo-Info.plist"; sourceTree = "<group>"; };
+		A5A54BE714D1D6FD0095193C /* AudioRecordDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AudioRecordDemo-Info.plist"; sourceTree = "<group>"; };
 		A5A54BE914D1D6FD0095193C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5A54BEB14D1D6FD0095193C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A5A54BED14D1D6FD0095193C /* AudioRecordDemo-Prefix.pch */ = {isa = PBXFileReference; path = "AudioRecordDemo-Prefix.pch"; sourceTree = "<group>"; };
-		A5A54BEE14D1D6FD0095193C /* ARDAppDelegate.h */ = {isa = PBXFileReference; path = ARDAppDelegate.h; sourceTree = "<group>"; };
+		A5A54BED14D1D6FD0095193C /* AudioRecordDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioRecordDemo-Prefix.pch"; sourceTree = "<group>"; };
+		A5A54BEE14D1D6FD0095193C /* ARDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARDAppDelegate.h; sourceTree = "<group>"; };
 		A5A54BEF14D1D6FD0095193C /* ARDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARDAppDelegate.m; sourceTree = "<group>"; };
-		A5A54BF114D1D6FD0095193C /* ARDViewController.h */ = {isa = PBXFileReference; path = ARDViewController.h; sourceTree = "<group>"; };
+		A5A54BF114D1D6FD0095193C /* ARDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARDViewController.h; sourceTree = "<group>"; };
 		A5A54BF214D1D6FD0095193C /* ARDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARDViewController.m; sourceTree = "<group>"; };
 		A5A54BF514D1D6FD0095193C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ARDViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
