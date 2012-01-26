@@ -62,9 +62,6 @@
 	
 	if ([recorder isRecording]) {
 		[recorder stop];
-//		[recButton setTitle:@"Record" forState:UIControlStateNormal];
-//		[playButton setEnabled:YES];
-//		[playButton setAlpha:1.0];
 		[self enterState:DHAudioRecorderStateNotRecordingCanPlay];
 	}
 	else {
@@ -73,9 +70,6 @@
 			NSLog(@"could not start recording");
 			return;
 		}
-//		[recButton setTitle:@"Stop" forState:UIControlStateNormal];
-//		[playButton setEnabled:NO];
-//		[playButton setAlpha:0.5];
 		[self enterState:DHAudioRecorderStateRecording];
 	}
 }
@@ -90,14 +84,10 @@
 	
 	if ([player isPlaying]) {
 		[player stop];
-//		[self playingEnded];
 		[self enterState:DHAudioRecorderStateNotRecordingCanPlay];
 	}
 	else {
 		[player play];
-//		[playButton setTitle:@"Stop" forState:UIControlStateNormal];
-//		[recButton setEnabled:NO];
-//		[recButton setAlpha:0.5];
 		[self enterState:DHAudioRecorderStatePlaying];
 	}
 }
@@ -114,21 +104,16 @@
 	[playButton setEnabled:NO];
 	[playButton setAlpha:0.5];
 	
-	// adjust to suit the state
+	// alter as appropriate for the target state
 	switch (newState) {
 		case DHAudioRecorderStateRecording:
-		{
 			[recButton setTitle:@"Stop" forState:UIControlStateNormal];
 			break;
-		}
 		case DHAudioRecorderStateNotRecordingCanPlay:
-		{
 			[playButton setEnabled:YES];
 			[playButton setAlpha:1.0];
 			break;
-		}
 		case DHAudioRecorderStatePlaying:
-		{
 			[recButton setTitle:@"Record" forState:UIControlStateNormal];
 			[recButton setEnabled:NO];
 			[recButton setAlpha:0.5];
@@ -136,18 +121,10 @@
 			[playButton setEnabled:YES];
 			[playButton setAlpha:1.0];
 			break;	
-		}
 		default:
 			break;
 	}
 }
-
-//- (void)playingEnded
-//{
-//	[playButton setTitle:@"Play" forState:UIControlStateNormal];
-//	[recButton setEnabled:YES];
-//	[recButton setAlpha:1.0];
-//}
 
 - (NSURL *)filePathURL
 {
@@ -171,7 +148,6 @@
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)aPlayer
 					   successfully:(BOOL)sucessful
 {
-//	[self playingEnded];
 	if (!sucessful) {
 		NSLog(@"Playing ended, but not sucessfully");
 	}

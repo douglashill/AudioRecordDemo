@@ -30,7 +30,6 @@ typedef enum {
 - (IBAction)togglePlay:(id)sender;
 
 - (void)enterState:(DHAudioRecorderState)newState;
-//- (void)playingEnded;
 - (NSURL *)filePathURL;
 - (NSString *)filePathString;
 
