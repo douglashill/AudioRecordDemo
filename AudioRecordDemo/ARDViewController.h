@@ -6,7 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DHAudioRecorder;
 
 @interface ARDViewController : UIViewController
+
+@property (nonatomic, retain) DHAudioRecorder *recorder;
 
 @end
