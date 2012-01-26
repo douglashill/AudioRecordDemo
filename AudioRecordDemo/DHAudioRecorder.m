@@ -7,7 +7,7 @@
 #import "DHAudioRecorder.h"
 
 @implementation DHAudioRecorder
-@synthesize view, recButton, playButton;
+@synthesize view, recButton, playButton, filename;
 
 - (void)dealloc
 {
@@ -16,13 +16,14 @@
 	[playButton release];
 	[recorder release];
 	[player release];
+	[filename release];
 	[super dealloc];
 }
 
 - (id)init
 {
 	if (self = [super init]) {
-		
+		[self setFilename:@"recording.caf"];
 	}
 	return self;
 }
@@ -33,6 +34,13 @@
 		[[NSBundle mainBundle] loadNibNamed:@"DHAudioRecorderView"
 									  owner:self
 									options:nil];
+		BOOL fileExists = [[NSFileManager defaultManager]
+						   fileExistsAtPath:[self filePathString]];
+		if (fileExists) {
+			[self enterState:DHAudioRecorderStateNotRecordingCanPlay];
+		} else {
+			[self enterState:DHAudioRecorderStateNotRecordingHaveNothing];
+		}
 	}
 	return view;
 }
@@ -54,9 +62,10 @@
 	
 	if ([recorder isRecording]) {
 		[recorder stop];
-		[recButton setTitle:@"Record" forState:UIControlStateNormal];
-		[playButton setEnabled:YES];
-		[playButton setAlpha:1.0];
+//		[recButton setTitle:@"Record" forState:UIControlStateNormal];
+//		[playButton setEnabled:YES];
+//		[playButton setAlpha:1.0];
+		[self enterState:DHAudioRecorderStateNotRecordingCanPlay];
 	}
 	else {
 		BOOL success = [recorder record];
@@ -64,9 +73,10 @@
 			NSLog(@"could not start recording");
 			return;
 		}
-		[recButton setTitle:@"Stop" forState:UIControlStateNormal];
-		[playButton setEnabled:NO];
-		[playButton setAlpha:0.5];
+//		[recButton setTitle:@"Stop" forState:UIControlStateNormal];
+//		[playButton setEnabled:NO];
+//		[playButton setAlpha:0.5];
+		[self enterState:DHAudioRecorderStateRecording];
 	}
 }
 
@@ -80,34 +90,79 @@
 	
 	if ([player isPlaying]) {
 		[player stop];
-		[self playingEnded];
+//		[self playingEnded];
+		[self enterState:DHAudioRecorderStateNotRecordingCanPlay];
 	}
 	else {
 		[player play];
-		[playButton setTitle:@"Stop" forState:UIControlStateNormal];
-		[recButton setEnabled:NO];
-		[recButton setAlpha:0.5];
+//		[playButton setTitle:@"Stop" forState:UIControlStateNormal];
+//		[recButton setEnabled:NO];
+//		[recButton setAlpha:0.5];
+		[self enterState:DHAudioRecorderStatePlaying];
 	}
 }
 
 #pragma mark -
 
-- (void)playingEnded
+- (void)enterState:(DHAudioRecorderState)newState
 {
-	[playButton setTitle:@"Play" forState:UIControlStateNormal];
+	// start from inital state of not recording, can not play
+	[recButton setTitle:@"Record" forState:UIControlStateNormal];
 	[recButton setEnabled:YES];
 	[recButton setAlpha:1.0];
+	[playButton setTitle:@"Play" forState:UIControlStateNormal];
+	[playButton setEnabled:NO];
+	[playButton setAlpha:0.5];
+	
+	// adjust to suit the state
+	switch (newState) {
+		case DHAudioRecorderStateRecording:
+		{
+			[recButton setTitle:@"Stop" forState:UIControlStateNormal];
+			break;
+		}
+		case DHAudioRecorderStateNotRecordingCanPlay:
+		{
+			[playButton setEnabled:YES];
+			[playButton setAlpha:1.0];
+			break;
+		}
+		case DHAudioRecorderStatePlaying:
+		{
+			[recButton setTitle:@"Record" forState:UIControlStateNormal];
+			[recButton setEnabled:NO];
+			[recButton setAlpha:0.5];
+			[playButton setTitle:@"Pause" forState:UIControlStateNormal];
+			[playButton setEnabled:YES];
+			[playButton setAlpha:1.0];
+			break;	
+		}
+		default:
+			break;
+	}
 }
 
+//- (void)playingEnded
+//{
+//	[playButton setTitle:@"Play" forState:UIControlStateNormal];
+//	[recButton setEnabled:YES];
+//	[recButton setAlpha:1.0];
+//}
+
 - (NSURL *)filePathURL
+{
+	return [NSURL fileURLWithPath:[self filePathString]];
+}
+
+- (NSString *)filePathString
 {
 	NSArray *documentsDirectories = 
 	NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	
 	NSString *documentsDirectory = [documentsDirectories objectAtIndex:0];
 	NSString *recordingPath =
-	[documentsDirectory stringByAppendingPathComponent:@"recording.caf"];
-	return [NSURL fileURLWithPath:recordingPath];
+	[documentsDirectory stringByAppendingPathComponent:[self filename]];
+	return recordingPath;
 }
 
 
@@ -116,10 +171,11 @@
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)aPlayer
 					   successfully:(BOOL)sucessful
 {
-	[self playingEnded];
+//	[self playingEnded];
 	if (!sucessful) {
-		NSLog(@"Played ended not sucessful");
+		NSLog(@"Playing ended, but not sucessfully");
 	}
+	[self enterState:DHAudioRecorderStateNotRecordingCanPlay];
 }
 
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)aPlayer

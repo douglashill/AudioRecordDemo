@@ -58,7 +58,8 @@
 		A5A54BD014D1D6FD0095193C = {
 			isa = PBXGroup;
 			children = (
-				A5A54BE514D1D6FD0095193C /* AudioRecordDemo */,
+				A5A54BE514D1D6FD0095193C /* Demo */,
+				A5A54C1214D1E3930095193C /* DHAudioRecorder */,
 				A5A54BDE14D1D6FD0095193C /* Frameworks */,
 				A5A54BDC14D1D6FD0095193C /* Products */,
 			);
@@ -83,7 +84,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A5A54BE514D1D6FD0095193C /* AudioRecordDemo */ = {
+		A5A54BE514D1D6FD0095193C /* Demo */ = {
 			isa = PBXGroup;
 			children = (
 				A5A54BEE14D1D6FD0095193C /* ARDAppDelegate.h */,
@@ -91,11 +92,9 @@
 				A5A54BF114D1D6FD0095193C /* ARDViewController.h */,
 				A5A54BF214D1D6FD0095193C /* ARDViewController.m */,
 				A5A54BF414D1D6FD0095193C /* ARDViewController.xib */,
-				A5A54C0514D1DA4B0095193C /* DHAudioRecorder.h */,
-				A5A54C0614D1DA4B0095193C /* DHAudioRecorder.m */,
-				A5A54C0914D1DA740095193C /* DHAudioRecorderView.xib */,
 				A5A54BE614D1D6FD0095193C /* Supporting Files */,
 			);
+			name = Demo;
 			path = AudioRecordDemo;
 			sourceTree = "<group>";
 		};
@@ -108,6 +107,17 @@
 				A5A54BED14D1D6FD0095193C /* AudioRecordDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A5A54C1214D1E3930095193C /* DHAudioRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				A5A54C0514D1DA4B0095193C /* DHAudioRecorder.h */,
+				A5A54C0614D1DA4B0095193C /* DHAudioRecorder.m */,
+				A5A54C0914D1DA740095193C /* DHAudioRecorderView.xib */,
+			);
+			name = DHAudioRecorder;
+			path = AudioRecordDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

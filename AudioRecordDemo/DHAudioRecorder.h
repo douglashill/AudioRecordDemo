@@ -8,6 +8,13 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
+typedef enum {
+	DHAudioRecorderStateNotRecordingHaveNothing = 0,
+	DHAudioRecorderStateNotRecordingCanPlay,
+	DHAudioRecorderStateRecording,
+	DHAudioRecorderStatePlaying,
+} DHAudioRecorderState;
+
 @interface DHAudioRecorder : NSObject <AVAudioPlayerDelegate>
 {
 	AVAudioRecorder *recorder;
@@ -17,11 +24,14 @@
 @property (nonatomic, retain) IBOutlet UIView *view;
 @property (nonatomic, retain) IBOutlet UIButton *recButton;
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
+@property (nonatomic, retain) NSString *filename;
 
 - (IBAction)toggleRecord:(id)sender;
 - (IBAction)togglePlay:(id)sender;
 
-- (void)playingEnded;
+- (void)enterState:(DHAudioRecorderState)newState;
+//- (void)playingEnded;
 - (NSURL *)filePathURL;
+- (NSString *)filePathString;
 
 @end
