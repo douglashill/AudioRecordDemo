@@ -21,10 +21,12 @@
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+	[self setWindow:[[[UIWindow alloc]
+					  initWithFrame:[[UIScreen mainScreen] bounds]] autorelease]];
+	
 	ARDViewController *vc = [[[ARDViewController alloc] init] autorelease];
-	self.window.rootViewController = vc;
-    [self.window makeKeyAndVisible];
+	[[self window] setRootViewController:vc];
+    [[self window] makeKeyAndVisible];
     return YES;
 }
 

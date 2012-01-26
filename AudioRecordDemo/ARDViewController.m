@@ -11,19 +11,9 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end
