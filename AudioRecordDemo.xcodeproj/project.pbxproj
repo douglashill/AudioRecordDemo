@@ -1,0 +1,279 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A5A54BE014D1D6FD0095193C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A54BDF14D1D6FD0095193C /* UIKit.framework */; };
+		A5A54BE214D1D6FD0095193C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A54BE114D1D6FD0095193C /* Foundation.framework */; };
+		A5A54BE414D1D6FD0095193C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A54BE314D1D6FD0095193C /* CoreGraphics.framework */; };
+		A5A54BEA14D1D6FD0095193C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5A54BE814D1D6FD0095193C /* InfoPlist.strings */; };
+		A5A54BEC14D1D6FD0095193C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A54BEB14D1D6FD0095193C /* main.m */; };
+		A5A54BF014D1D6FD0095193C /* ARDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A54BEF14D1D6FD0095193C /* ARDAppDelegate.m */; };
+		A5A54BF314D1D6FD0095193C /* ARDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A54BF214D1D6FD0095193C /* ARDViewController.m */; };
+		A5A54BF614D1D6FD0095193C /* ARDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5A54BF414D1D6FD0095193C /* ARDViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A5A54BDB14D1D6FD0095193C /* AudioRecordDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecordDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5A54BDF14D1D6FD0095193C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A5A54BE114D1D6FD0095193C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A5A54BE314D1D6FD0095193C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A5A54BE714D1D6FD0095193C /* AudioRecordDemo-Info.plist */ = {isa = PBXFileReference; path = "AudioRecordDemo-Info.plist"; sourceTree = "<group>"; };
+		A5A54BE914D1D6FD0095193C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A5A54BEB14D1D6FD0095193C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A5A54BED14D1D6FD0095193C /* AudioRecordDemo-Prefix.pch */ = {isa = PBXFileReference; path = "AudioRecordDemo-Prefix.pch"; sourceTree = "<group>"; };
+		A5A54BEE14D1D6FD0095193C /* ARDAppDelegate.h */ = {isa = PBXFileReference; path = ARDAppDelegate.h; sourceTree = "<group>"; };
+		A5A54BEF14D1D6FD0095193C /* ARDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARDAppDelegate.m; sourceTree = "<group>"; };
+		A5A54BF114D1D6FD0095193C /* ARDViewController.h */ = {isa = PBXFileReference; path = ARDViewController.h; sourceTree = "<group>"; };
+		A5A54BF214D1D6FD0095193C /* ARDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARDViewController.m; sourceTree = "<group>"; };
+		A5A54BF514D1D6FD0095193C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ARDViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A5A54BD814D1D6FD0095193C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A54BE014D1D6FD0095193C /* UIKit.framework in Frameworks */,
+				A5A54BE214D1D6FD0095193C /* Foundation.framework in Frameworks */,
+				A5A54BE414D1D6FD0095193C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A5A54BD014D1D6FD0095193C = {
+			isa = PBXGroup;
+			children = (
+				A5A54BE514D1D6FD0095193C /* AudioRecordDemo */,
+				A5A54BDE14D1D6FD0095193C /* Frameworks */,
+				A5A54BDC14D1D6FD0095193C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A5A54BDC14D1D6FD0095193C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A5A54BDB14D1D6FD0095193C /* AudioRecordDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A5A54BDE14D1D6FD0095193C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5A54BDF14D1D6FD0095193C /* UIKit.framework */,
+				A5A54BE114D1D6FD0095193C /* Foundation.framework */,
+				A5A54BE314D1D6FD0095193C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5A54BE514D1D6FD0095193C /* AudioRecordDemo */ = {
+			isa = PBXGroup;
+			children = (
+				A5A54BEE14D1D6FD0095193C /* ARDAppDelegate.h */,
+				A5A54BEF14D1D6FD0095193C /* ARDAppDelegate.m */,
+				A5A54BF114D1D6FD0095193C /* ARDViewController.h */,
+				A5A54BF214D1D6FD0095193C /* ARDViewController.m */,
+				A5A54BF414D1D6FD0095193C /* ARDViewController.xib */,
+				A5A54BE614D1D6FD0095193C /* Supporting Files */,
+			);
+			path = AudioRecordDemo;
+			sourceTree = "<group>";
+		};
+		A5A54BE614D1D6FD0095193C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A5A54BE714D1D6FD0095193C /* AudioRecordDemo-Info.plist */,
+				A5A54BE814D1D6FD0095193C /* InfoPlist.strings */,
+				A5A54BEB14D1D6FD0095193C /* main.m */,
+				A5A54BED14D1D6FD0095193C /* AudioRecordDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5A54BDA14D1D6FD0095193C /* AudioRecordDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5A54BF914D1D6FD0095193C /* Build configuration list for PBXNativeTarget "AudioRecordDemo" */;
+			buildPhases = (
+				A5A54BD714D1D6FD0095193C /* Sources */,
+				A5A54BD814D1D6FD0095193C /* Frameworks */,
+				A5A54BD914D1D6FD0095193C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AudioRecordDemo;
+			productName = AudioRecordDemo;
+			productReference = A5A54BDB14D1D6FD0095193C /* AudioRecordDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A5A54BD214D1D6FD0095193C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = A5A54BD514D1D6FD0095193C /* Build configuration list for PBXProject "AudioRecordDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A5A54BD014D1D6FD0095193C;
+			productRefGroup = A5A54BDC14D1D6FD0095193C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5A54BDA14D1D6FD0095193C /* AudioRecordDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A5A54BD914D1D6FD0095193C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A54BEA14D1D6FD0095193C /* InfoPlist.strings in Resources */,
+				A5A54BF614D1D6FD0095193C /* ARDViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5A54BD714D1D6FD0095193C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A54BEC14D1D6FD0095193C /* main.m in Sources */,
+				A5A54BF014D1D6FD0095193C /* ARDAppDelegate.m in Sources */,
+				A5A54BF314D1D6FD0095193C /* ARDViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A5A54BE814D1D6FD0095193C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5A54BE914D1D6FD0095193C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A5A54BF414D1D6FD0095193C /* ARDViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5A54BF514D1D6FD0095193C /* en */,
+			);
+			name = ARDViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A5A54BF714D1D6FD0095193C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A5A54BF814D1D6FD0095193C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A5A54BFA14D1D6FD0095193C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AudioRecordDemo/AudioRecordDemo-Prefix.pch";
+				INFOPLIST_FILE = "AudioRecordDemo/AudioRecordDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A5A54BFB14D1D6FD0095193C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AudioRecordDemo/AudioRecordDemo-Prefix.pch";
+				INFOPLIST_FILE = "AudioRecordDemo/AudioRecordDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A5A54BD514D1D6FD0095193C /* Build configuration list for PBXProject "AudioRecordDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5A54BF714D1D6FD0095193C /* Debug */,
+				A5A54BF814D1D6FD0095193C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5A54BF914D1D6FD0095193C /* Build configuration list for PBXNativeTarget "AudioRecordDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5A54BFA14D1D6FD0095193C /* Debug */,
+				A5A54BFB14D1D6FD0095193C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A5A54BD214D1D6FD0095193C /* Project object */;
+}
