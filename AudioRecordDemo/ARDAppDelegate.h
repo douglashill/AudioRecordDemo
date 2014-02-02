@@ -5,7 +5,7 @@
 //  Created by Douglas Hill on 26/01/2012.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface ARDAppDelegate : UIResponder <UIApplicationDelegate>
 

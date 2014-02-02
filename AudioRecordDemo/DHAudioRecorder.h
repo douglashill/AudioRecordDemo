@@ -4,9 +4,9 @@
 //  Created by Douglas Hill on 26/01/2012.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
+@import Foundation;
+@import UIKit;
+@import AVFoundation;
 
 typedef enum {
 	DHAudioRecorderStateNotRecordingHaveNothing = 0,
