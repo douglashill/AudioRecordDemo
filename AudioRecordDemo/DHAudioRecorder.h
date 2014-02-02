@@ -8,26 +8,18 @@
 @import UIKit;
 @import AVFoundation;
 
-typedef enum {
-	DHAudioRecorderStateNotRecordingHaveNothing,
-	DHAudioRecorderStateNotRecordingCanPlay,
-	DHAudioRecorderStateRecording,
-	DHAudioRecorderStatePlaying,
-} DHAudioRecorderState;
-
 @interface DHAudioRecorder : NSObject
-{
-	AVAudioRecorder *recorder;
-	AVAudioPlayer *player;
-}
 
-@property (nonatomic, strong, readonly) UIView *view;
+/// Designated initialiser
+- (instancetype)initWithPath:(NSString *)path recordControl:(UIControl *)recordControl playControl:(UIControl *)playControl;
+
+/// The control will be selected duing recording.
+@property (nonatomic, strong) IBOutlet UIControl *recButton;
+
+/// The control will be selected duing playback.
+@property (nonatomic, strong) IBOutlet UIControl *playButton;
 
 - (IBAction)toggleRecord:(id)sender;
 - (IBAction)togglePlay:(id)sender;
-
-- (void)enterState:(DHAudioRecorderState)newState;
-- (NSURL *)filePathURL;
-- (NSString *)filePathString;
 
 @end

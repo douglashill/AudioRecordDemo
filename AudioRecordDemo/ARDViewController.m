@@ -8,6 +8,13 @@
 #import "ARDViewController.h"
 #import "DHAudioRecorder.h"
 
+static NSString * const audioFilename = @"recording.caf";
+
+NSString *audioPath(void)
+{
+	return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:audioFilename];
+}
+
 @interface ARDViewController()
 
 @property (nonatomic, strong) DHAudioRecorder *recorder;
@@ -33,11 +40,25 @@
 - (void)loadView
 {
 	[self setView:[[UIView alloc] init]];
-	[[self view] setBackgroundColor:[UIColor grayColor]];
+	[[self view] setBackgroundColor:[UIColor whiteColor]];
 	
-	[self setRecorder:[[DHAudioRecorder alloc] init]];
-	[[self view] addSubview:[[self recorder] view]];
-	[[[self recorder] view] setFrame:CGRectMake(10, 10, 300, 440)];
+	UIButton *recButton = [UIButton buttonWithType:UIButtonTypeSystem];
+	[recButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+	[recButton setTitle:@"Record" forState:UIControlStateNormal];
+	[recButton setTitle:@"Stop" forState:UIControlStateSelected];
+	
+	UIButton *playButton = [UIButton buttonWithType:UIButtonTypeSystem];
+	[playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+	[playButton setTitle:@"Play" forState:UIControlStateNormal];
+	[playButton setTitle:@"Pause" forState:UIControlStateSelected];
+	
+	[self setRecorder:[[DHAudioRecorder alloc] initWithPath:audioPath() recordControl:recButton playControl:playButton]];
+	
+	[[self view] addSubview:recButton];
+	[[self view] addSubview:playButton];
+	
+	[[self view] addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[rec]-[play]" options:NSLayoutFormatAlignAllBaseline metrics:nil views:@{@"rec" : recButton, @"play" : playButton}]];
+	[[self view] addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[rec]" options:NSLayoutFormatAlignAllBaseline metrics:nil views:@{@"rec" : recButton, @"play" : playButton}]];
 }
 
 @end

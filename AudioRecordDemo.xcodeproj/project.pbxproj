@@ -12,7 +12,6 @@
 		A5A54BF014D1D6FD0095193C /* ARDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A54BEF14D1D6FD0095193C /* ARDAppDelegate.m */; };
 		A5A54BF314D1D6FD0095193C /* ARDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A54BF214D1D6FD0095193C /* ARDViewController.m */; };
 		A5A54C0714D1DA4B0095193C /* DHAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A54C0614D1DA4B0095193C /* DHAudioRecorder.m */; };
-		A5A54C0A14D1DA740095193C /* DHAudioRecorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5A54C0914D1DA740095193C /* DHAudioRecorderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +25,6 @@
 		A5A54BF214D1D6FD0095193C /* ARDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARDViewController.m; sourceTree = "<group>"; };
 		A5A54C0514D1DA4B0095193C /* DHAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DHAudioRecorder.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A5A54C0614D1DA4B0095193C /* DHAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHAudioRecorder.m; sourceTree = "<group>"; };
-		A5A54C0914D1DA740095193C /* DHAudioRecorderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DHAudioRecorderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +83,6 @@
 			children = (
 				A5A54C0514D1DA4B0095193C /* DHAudioRecorder.h */,
 				A5A54C0614D1DA4B0095193C /* DHAudioRecorder.m */,
-				A5A54C0914D1DA740095193C /* DHAudioRecorderView.xib */,
 			);
 			name = DHAudioRecorder;
 			path = AudioRecordDemo;
@@ -142,7 +139,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5A54BEA14D1D6FD0095193C /* InfoPlist.strings in Resources */,
-				A5A54C0A14D1DA740095193C /* DHAudioRecorderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
