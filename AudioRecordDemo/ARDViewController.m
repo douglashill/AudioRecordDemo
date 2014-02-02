@@ -9,15 +9,14 @@
 #import "DHAudioRecorder.h"
 
 @implementation ARDViewController
-@synthesize recorder;
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
 	[self setRecorder:[[DHAudioRecorder alloc] init]];
-	[[self view] addSubview:[recorder view]];
-	[[recorder view] setFrame:CGRectMake(10, 10, 300, 440)];
+	[[self view] addSubview:[[self recorder] view]];
+	[[[self recorder] view] setFrame:CGRectMake(10, 10, 300, 440)];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

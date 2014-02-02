@@ -7,8 +7,6 @@
 #import "DHAudioRecorder.h"
 
 @implementation DHAudioRecorder
-@synthesize view, recButton, playButton, filename;
-
 
 - (id)init
 {
@@ -20,7 +18,7 @@
 
 - (UIView *)view
 {
-	if (!view) {
+	if (!_view) {
 		[[NSBundle mainBundle] loadNibNamed:@"DHAudioRecorderView"
 									  owner:self
 									options:nil];
@@ -32,7 +30,7 @@
 			[self enterState:DHAudioRecorderStateNotRecordingHaveNothing];
 		}
 	}
-	return view;
+	return _view;
 }
 
 #pragma mark - Actions
@@ -87,29 +85,29 @@
 - (void)enterState:(DHAudioRecorderState)newState
 {
 	// start from inital state of not recording, can not play
-	[recButton setTitle:@"Record" forState:UIControlStateNormal];
-	[recButton setEnabled:YES];
-	[recButton setAlpha:1.0];
-	[playButton setTitle:@"Play" forState:UIControlStateNormal];
-	[playButton setEnabled:NO];
-	[playButton setAlpha:0.5];
+	[[self recButton] setTitle:@"Record" forState:UIControlStateNormal];
+	[[self recButton] setEnabled:YES];
+	[[self recButton] setAlpha:1.0];
+	[[self playButton] setTitle:@"Play" forState:UIControlStateNormal];
+	[[self playButton] setEnabled:NO];
+	[[self playButton] setAlpha:0.5];
 	
 	// alter as appropriate for the target state
 	switch (newState) {
 		case DHAudioRecorderStateRecording:
-			[recButton setTitle:@"Stop" forState:UIControlStateNormal];
+			[[self recButton] setTitle:@"Stop" forState:UIControlStateNormal];
 			break;
 		case DHAudioRecorderStateNotRecordingCanPlay:
-			[playButton setEnabled:YES];
-			[playButton setAlpha:1.0];
+			[[self playButton] setEnabled:YES];
+			[[self playButton] setAlpha:1.0];
 			break;
 		case DHAudioRecorderStatePlaying:
-			[recButton setTitle:@"Record" forState:UIControlStateNormal];
-			[recButton setEnabled:NO];
-			[recButton setAlpha:0.5];
-			[playButton setTitle:@"Pause" forState:UIControlStateNormal];
-			[playButton setEnabled:YES];
-			[playButton setAlpha:1.0];
+			[[self recButton] setTitle:@"Record" forState:UIControlStateNormal];
+			[[self recButton] setEnabled:NO];
+			[[self recButton] setAlpha:0.5];
+			[[self playButton] setTitle:@"Pause" forState:UIControlStateNormal];
+			[[self playButton] setEnabled:YES];
+			[[self playButton] setAlpha:1.0];
 			break;	
 		default:
 			break;
@@ -126,7 +124,7 @@
 	NSArray *documentsDirectories = 
 	NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	
-	NSString *documentsDirectory = [documentsDirectories objectAtIndex:0];
+	NSString *documentsDirectory = [documentsDirectories firstObject];
 	NSString *recordingPath =
 	[documentsDirectory stringByAppendingPathComponent:[self filename]];
 	return recordingPath;
