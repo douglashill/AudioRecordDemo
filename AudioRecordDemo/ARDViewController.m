@@ -37,9 +37,4 @@
 	[[[self recorder] view] setFrame:CGRectMake(10, 10, 300, 440)];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 @end
