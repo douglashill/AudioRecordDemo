@@ -10,6 +10,8 @@
 
 @interface ARDViewController : UIViewController
 
+- (instancetype)init; /// Designated initialiser
+
 @property (nonatomic, strong) DHAudioRecorder *recorder;
 
 @end
