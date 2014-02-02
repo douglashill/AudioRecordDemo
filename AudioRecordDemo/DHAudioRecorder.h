@@ -9,22 +9,19 @@
 @import AVFoundation;
 
 typedef enum {
-	DHAudioRecorderStateNotRecordingHaveNothing = 0,
+	DHAudioRecorderStateNotRecordingHaveNothing,
 	DHAudioRecorderStateNotRecordingCanPlay,
 	DHAudioRecorderStateRecording,
 	DHAudioRecorderStatePlaying,
 } DHAudioRecorderState;
 
-@interface DHAudioRecorder : NSObject <AVAudioPlayerDelegate>
+@interface DHAudioRecorder : NSObject
 {
 	AVAudioRecorder *recorder;
 	AVAudioPlayer *player;
 }
 
-@property (nonatomic, strong) IBOutlet UIView *view;
-@property (nonatomic, strong) IBOutlet UIButton *recButton;
-@property (nonatomic, strong) IBOutlet UIButton *playButton;
-@property (nonatomic, strong) NSString *filename;
+@property (nonatomic, strong, readonly) UIView *view;
 
 - (IBAction)toggleRecord:(id)sender;
 - (IBAction)togglePlay:(id)sender;

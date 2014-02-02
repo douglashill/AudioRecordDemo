@@ -8,6 +8,12 @@
 #import "ARDViewController.h"
 #import "DHAudioRecorder.h"
 
+@interface ARDViewController()
+
+@property (nonatomic, strong) DHAudioRecorder *recorder;
+
+@end
+
 @implementation ARDViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

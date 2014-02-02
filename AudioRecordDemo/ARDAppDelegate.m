@@ -10,15 +10,14 @@
 
 @implementation ARDAppDelegate
 
-- (BOOL)application:(UIApplication *)application
-didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[self setWindow:[[UIWindow alloc]
-					  initWithFrame:[[UIScreen mainScreen] bounds]]];
+	[self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
 	
 	ARDViewController *vc = [[ARDViewController alloc] init];
 	[[self window] setRootViewController:vc];
     [[self window] makeKeyAndVisible];
+	
     return YES;
 }
 

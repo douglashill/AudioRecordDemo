@@ -6,7 +6,18 @@
 
 #import "DHAudioRecorder.h"
 
+@interface DHAudioRecorder () <AVAudioPlayerDelegate>
+
+@property (nonatomic, strong) IBOutlet UIButton *recButton;
+@property (nonatomic, strong) IBOutlet UIButton *playButton;
+@property (nonatomic, strong) NSString *filename;
+
+@end
+
 @implementation DHAudioRecorder
+{
+	UIView *_view;
+}
 
 - (id)init
 {
