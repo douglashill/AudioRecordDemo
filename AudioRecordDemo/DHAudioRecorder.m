@@ -9,16 +9,6 @@
 @implementation DHAudioRecorder
 @synthesize view, recButton, playButton, filename;
 
-- (void)dealloc
-{
-	[view release];
-	[recButton release];
-	[playButton release];
-	[recorder release];
-	[player release];
-	[filename release];
-	[super dealloc];
-}
 
 - (id)init
 {

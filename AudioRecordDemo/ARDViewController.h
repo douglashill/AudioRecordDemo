@@ -10,6 +10,6 @@
 
 @interface ARDViewController : UIViewController
 
-@property (nonatomic, retain) DHAudioRecorder *recorder;
+@property (nonatomic, strong) DHAudioRecorder *recorder;
 
 @end

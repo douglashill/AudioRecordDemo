@@ -15,15 +15,9 @@
 
 - (void)viewDidLoad
 {
-	[self setRecorder:[[[DHAudioRecorder alloc] init] autorelease]];
+	[self setRecorder:[[DHAudioRecorder alloc] init]];
 	[[self view] addSubview:[recorder view]];
 	[[recorder view] setFrame:CGRectMake(10, 10, 300, 440)];
-}
-
-- (void)viewDidUnload
-{
-	[super viewDidUnload];
-	[[self recorder] release];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

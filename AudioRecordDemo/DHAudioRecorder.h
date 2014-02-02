@@ -21,10 +21,10 @@ typedef enum {
 	AVAudioPlayer *player;
 }
 
-@property (nonatomic, retain) IBOutlet UIView *view;
-@property (nonatomic, retain) IBOutlet UIButton *recButton;
-@property (nonatomic, retain) IBOutlet UIButton *playButton;
-@property (nonatomic, retain) NSString *filename;
+@property (nonatomic, strong) IBOutlet UIView *view;
+@property (nonatomic, strong) IBOutlet UIButton *recButton;
+@property (nonatomic, strong) IBOutlet UIButton *playButton;
+@property (nonatomic, strong) NSString *filename;
 
 - (IBAction)toggleRecord:(id)sender;
 - (IBAction)togglePlay:(id)sender;

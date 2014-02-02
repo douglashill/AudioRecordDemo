@@ -12,19 +12,14 @@
 
 @synthesize window = _window;
 
-- (void)dealloc
-{
-	[_window release];
-    [super dealloc];
-}
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[self setWindow:[[[UIWindow alloc]
-					  initWithFrame:[[UIScreen mainScreen] bounds]] autorelease]];
+	[self setWindow:[[UIWindow alloc]
+					  initWithFrame:[[UIScreen mainScreen] bounds]]];
 	
-	ARDViewController *vc = [[[ARDViewController alloc] init] autorelease];
+	ARDViewController *vc = [[ARDViewController alloc] init];
 	[[self window] setRootViewController:vc];
     [[self window] makeKeyAndVisible];
     return YES;
