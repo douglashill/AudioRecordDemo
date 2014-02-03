@@ -30,10 +30,10 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 
 - (id)init
 {
-	return [self initWithPath:nil recordControl:nil playControl:nil];
+	return [self initWithPath:nil recordButton:nil playButton:nil];
 }
 
-- (instancetype)initWithPath:(NSString *)path recordControl:(UIControl *)recordControl playControl:(UIControl *)playControl
+- (instancetype)initWithPath:(NSString *)path recordButton:(UIButton *)recordControl playButton:(UIButton *)playControl
 {
 	self = [super init];
 	if (self == nil) return nil;
@@ -52,7 +52,7 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 	return self;
 }
 
-- (void)setRecButton:(UIControl *)recButton
+- (void)setRecButton:(UIButton *)recButton
 {
 	if (recButton == _recButton) {
 		return;
@@ -65,7 +65,7 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 	_recButton = recButton;
 }
 
-- (void)setPlayButton:(UIControl *)playButton
+- (void)setPlayButton:(UIButton *)playButton
 {
 	if (playButton == _playButton) {
 		return;

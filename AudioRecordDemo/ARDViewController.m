@@ -52,7 +52,7 @@ NSString *audioPath(void)
 	[playButton setTitle:@"Play" forState:UIControlStateNormal];
 	[playButton setTitle:@"Pause" forState:UIControlStateSelected];
 	
-	[self setRecorder:[[DHAudioRecorder alloc] initWithPath:audioPath() recordControl:recButton playControl:playButton]];
+	[self setRecorder:[[DHAudioRecorder alloc] initWithPath:audioPath() recordButton:recButton playButton:playButton]];
 	
 	[[self view] addSubview:recButton];
 	[[self view] addSubview:playButton];
