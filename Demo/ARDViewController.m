@@ -53,8 +53,18 @@ static NSString * const audioFilename = @"recording.caf";
 	[[self view] addSubview:recButton];
 	[[self view] addSubview:playButton];
 	
-	[[self view] addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[rec]-[play]" options:NSLayoutFormatAlignAllBaseline metrics:nil views:@{@"rec" : recButton, @"play" : playButton}]];
-	[[self view] addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[rec]" options:NSLayoutFormatAlignAllBaseline metrics:nil views:@{@"rec" : recButton, @"play" : playButton}]];
+	[[self view] addConstraint:[NSLayoutConstraint constraintWithItem:playButton attribute:NSLayoutAttributeCenterX
+															relatedBy:NSLayoutRelationEqual
+															   toItem:[self view] attribute:NSLayoutAttributeCenterX
+														   multiplier:1 constant:0]];
+	[[self view] addConstraint:[NSLayoutConstraint constraintWithItem:playButton attribute:NSLayoutAttributeBaseline
+															relatedBy:NSLayoutRelationEqual
+															   toItem:[self view] attribute:NSLayoutAttributeCenterY
+														   multiplier:1 constant:0]];
+	[[self view] addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[rec]-[play]"
+																		options:NSLayoutFormatAlignAllLeading | NSLayoutFormatAlignAllTrailing
+																		metrics:nil
+																		  views:@{@"rec" : recButton, @"play" : playButton}]];
 }
 
 @end
