@@ -10,11 +10,6 @@
 
 static NSString * const audioFilename = @"recording.caf";
 
-NSString *audioPath(void)
-{
-	return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:audioFilename];
-}
-
 @interface ARDViewController()
 
 @property (nonatomic, strong) DHAudioRecorder *recorder;
@@ -42,6 +37,8 @@ NSString *audioPath(void)
 	[self setView:[[UIView alloc] init]];
 	[[self view] setBackgroundColor:[UIColor whiteColor]];
 	
+	NSString *audioPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:audioFilename];
+	
 	UIButton *recButton = [UIButton buttonWithType:UIButtonTypeSystem];
 	[recButton setTranslatesAutoresizingMaskIntoConstraints:NO];
 	[recButton setTitle:@"Record" forState:UIControlStateNormal];
@@ -52,7 +49,7 @@ NSString *audioPath(void)
 	[playButton setTitle:@"Play" forState:UIControlStateNormal];
 	[playButton setTitle:@"Pause" forState:UIControlStateSelected];
 	
-	[self setRecorder:[[DHAudioRecorder alloc] initWithPath:audioPath() recordButton:recButton playButton:playButton]];
+	[self setRecorder:[[DHAudioRecorder alloc] initWithPath:audioPath recordButton:recButton playButton:playButton]];
 	
 	[[self view] addSubview:recButton];
 	[[self view] addSubview:playButton];
