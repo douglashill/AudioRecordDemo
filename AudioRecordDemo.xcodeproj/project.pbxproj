@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A5A54BEA14D1D6FD0095193C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5A54BE814D1D6FD0095193C /* InfoPlist.strings */; };
 		A5A54BEC14D1D6FD0095193C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A54BEB14D1D6FD0095193C /* main.m */; };
 		A5A54BF014D1D6FD0095193C /* ARDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A54BEF14D1D6FD0095193C /* ARDAppDelegate.m */; };
 		A5A54BF314D1D6FD0095193C /* ARDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A54BF214D1D6FD0095193C /* ARDViewController.m */; };
@@ -17,7 +16,6 @@
 /* Begin PBXFileReference section */
 		A5A54BDB14D1D6FD0095193C /* AudioRecordDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecordDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A54BE714D1D6FD0095193C /* AudioRecordDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AudioRecordDemo-Info.plist"; sourceTree = "<group>"; };
-		A5A54BE914D1D6FD0095193C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5A54BEB14D1D6FD0095193C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A5A54BEE14D1D6FD0095193C /* ARDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ARDAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A5A54BEF14D1D6FD0095193C /* ARDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARDAppDelegate.m; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				A5A54BE714D1D6FD0095193C /* AudioRecordDemo-Info.plist */,
-				A5A54BE814D1D6FD0095193C /* InfoPlist.strings */,
 				A5A54BEB14D1D6FD0095193C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,7 +135,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5A54BEA14D1D6FD0095193C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,17 +153,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		A5A54BE814D1D6FD0095193C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A5A54BE914D1D6FD0095193C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A5A54BF714D1D6FD0095193C /* Debug */ = {
