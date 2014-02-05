@@ -1,7 +1,7 @@
 //
 //  DHAudioRecorder.h
-//
-//  Created by Douglas Hill on 26/01/2012.
+//  Douglas Hill, February 2014
+//  https://github.com/douglashill/DHAudioRecorder
 //
 
 @import Foundation;
