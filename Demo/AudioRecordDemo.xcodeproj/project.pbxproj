@@ -39,8 +39,8 @@
 		A5A54BD014D1D6FD0095193C = {
 			isa = PBXGroup;
 			children = (
-				A5A54BE514D1D6FD0095193C /* Demo */,
 				A5A54C1214D1E3930095193C /* DHAudioRecorder */,
+				A5A54BE514D1D6FD0095193C /* Demo */,
 				A5A54BDC14D1D6FD0095193C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,23 +56,14 @@
 		A5A54BE514D1D6FD0095193C /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				A5A54BEB14D1D6FD0095193C /* main.m */,
 				A5A54BEE14D1D6FD0095193C /* ARDAppDelegate.h */,
 				A5A54BEF14D1D6FD0095193C /* ARDAppDelegate.m */,
 				A5A54BF114D1D6FD0095193C /* ARDViewController.h */,
 				A5A54BF214D1D6FD0095193C /* ARDViewController.m */,
-				A5A54BE614D1D6FD0095193C /* Supporting Files */,
+				A5A54BE714D1D6FD0095193C /* AudioRecordDemo-Info.plist */,
 			);
 			name = Demo;
-			path = AudioRecordDemo;
-			sourceTree = "<group>";
-		};
-		A5A54BE614D1D6FD0095193C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A5A54BE714D1D6FD0095193C /* AudioRecordDemo-Info.plist */,
-				A5A54BEB14D1D6FD0095193C /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A5A54C1214D1E3930095193C /* DHAudioRecorder */ = {
@@ -82,7 +73,7 @@
 				A5A54C0614D1DA4B0095193C /* DHAudioRecorder.m */,
 			);
 			name = DHAudioRecorder;
-			path = AudioRecordDemo;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
