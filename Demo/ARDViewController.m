@@ -39,14 +39,17 @@ static NSString * const audioFilename = @"recording.caf";
 	NSString *audioPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:audioFilename];
 	
 	UIButton *recButton = [UIButton buttonWithType:UIButtonTypeSystem];
-	[recButton setTranslatesAutoresizingMaskIntoConstraints:NO];
 	[recButton setTitle:@"Record" forState:UIControlStateNormal];
 	[recButton setTitle:@"Stop" forState:UIControlStateSelected];
 	
 	UIButton *playButton = [UIButton buttonWithType:UIButtonTypeSystem];
-	[playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
 	[playButton setTitle:@"Play" forState:UIControlStateNormal];
 	[playButton setTitle:@"Pause" forState:UIControlStateSelected];
+	
+	for (UIButton *button in @[recButton, playButton]) {
+		[button setTranslatesAutoresizingMaskIntoConstraints:NO];
+		[[button titleLabel] setFont:[UIFont systemFontOfSize:40]];
+	}
 	
 	[self setRecorder:[[DHAudioRecorder alloc] initWithPath:audioPath recordButton:recButton playButton:playButton]];
 	
