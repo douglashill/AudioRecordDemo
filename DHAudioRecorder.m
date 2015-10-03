@@ -39,7 +39,7 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 	if (self == nil) return nil;
 	
 	[self setFilePath:path ? path : [NSTemporaryDirectory() stringByAppendingPathComponent:defaultFilename]];
-	[self setRecButton:recordControl];
+	[self setRecordButton:recordControl];
 	[self setPlayButton:playControl];
 	
 	if ([[NSFileManager defaultManager] fileExistsAtPath:[self filePath]]) {
@@ -52,17 +52,17 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 	return self;
 }
 
-- (void)setRecButton:(UIButton *)recButton
+- (void)setRecordButton:(UIButton *)recordButton
 {
-	if (recButton == _recButton) {
+	if (recordButton == _recordButton) {
 		return;
 	}
 	
 	SEL const action = @selector(toggleRecord:);
-	[_recButton removeTarget:self action:action forControlEvents:triggerEvents];
-	[recButton addTarget:self action:action forControlEvents:triggerEvents];
+	[_recordButton removeTarget:self action:action forControlEvents:triggerEvents];
+	[recordButton addTarget:self action:action forControlEvents:triggerEvents];
 	
-	_recButton = recButton;
+	_recordButton = recordButton;
 }
 
 - (void)setPlayButton:(UIButton *)playButton
@@ -130,21 +130,21 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 - (void)enterState:(DHAudioRecorderState)newState
 {
 	// start from inital state of not recording, can not play
-	[[self recButton] setEnabled:YES];
-	[[self recButton] setSelected:NO];
+	[[self recordButton] setEnabled:YES];
+	[[self recordButton] setSelected:NO];
 	[[self playButton] setEnabled:NO];
 	[[self playButton] setSelected:NO];
 	
 	// alter as appropriate for the target state
 	switch (newState) {
 		case DHAudioRecorderStateRecording:
-			[[self recButton] setSelected:YES];
+			[[self recordButton] setSelected:YES];
 			break;
 		case DHAudioRecorderStateNotRecordingCanPlay:
 			[[self playButton] setEnabled:YES];
 			break;
 		case DHAudioRecorderStatePlaying:
-			[[self recButton] setEnabled:NO];
+			[[self recordButton] setEnabled:NO];
 			[[self playButton] setEnabled:YES];
 			[[self playButton] setSelected:YES];
 			break;	

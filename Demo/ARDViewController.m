@@ -38,22 +38,22 @@ static NSString * const audioFilename = @"recording.caf";
 	
 	NSString *audioPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:audioFilename];
 	
-	UIButton *recButton = [UIButton buttonWithType:UIButtonTypeSystem];
-	[recButton setTitle:@"Record" forState:UIControlStateNormal];
-	[recButton setTitle:@"Stop" forState:UIControlStateSelected];
+	UIButton *recordButton = [UIButton buttonWithType:UIButtonTypeSystem];
+	[recordButton setTitle:@"Record" forState:UIControlStateNormal];
+	[recordButton setTitle:@"Stop" forState:UIControlStateSelected];
 	
 	UIButton *playButton = [UIButton buttonWithType:UIButtonTypeSystem];
 	[playButton setTitle:@"Play" forState:UIControlStateNormal];
 	[playButton setTitle:@"Pause" forState:UIControlStateSelected];
 	
-	for (UIButton *button in @[recButton, playButton]) {
+	for (UIButton *button in @[recordButton, playButton]) {
 		[button setTranslatesAutoresizingMaskIntoConstraints:NO];
 		[[button titleLabel] setFont:[UIFont systemFontOfSize:40]];
 	}
 	
-	[self setRecorder:[[DHAudioRecorder alloc] initWithPath:audioPath recordButton:recButton playButton:playButton]];
+	[self setRecorder:[[DHAudioRecorder alloc] initWithPath:audioPath recordButton:recordButton playButton:playButton]];
 	
-	[[self view] addSubview:recButton];
+	[[self view] addSubview:recordButton];
 	[[self view] addSubview:playButton];
 	
 	[[self view] addConstraint:[NSLayoutConstraint constraintWithItem:playButton attribute:NSLayoutAttributeCenterX
@@ -67,7 +67,7 @@ static NSString * const audioFilename = @"recording.caf";
 	[[self view] addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[rec]-[play]"
 																		options:NSLayoutFormatAlignAllLeading | NSLayoutFormatAlignAllTrailing
 																		metrics:nil
-																		  views:@{@"rec" : recButton, @"play" : playButton}]];
+																		  views:@{@"rec" : recordButton, @"play" : playButton}]];
 }
 
 @end
