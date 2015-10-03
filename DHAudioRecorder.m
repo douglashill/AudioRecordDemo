@@ -18,8 +18,6 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 
 @interface DHAudioRecorder () <AVAudioPlayerDelegate, AVAudioRecorderDelegate>
 
-@property (nonatomic, copy) NSString *filePath;
-
 @end
 
 @implementation DHAudioRecorder
@@ -28,27 +26,29 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 	AVAudioPlayer *player;
 }
 
-- (id)init
+- (instancetype)init
 {
-	return [self initWithPath:nil recordButton:nil playButton:nil];
+	return [self initWithURL:nil];
 }
 
-- (instancetype)initWithPath:(NSString *)path recordButton:(UIButton *)recordControl playButton:(UIButton *)playControl
+- (instancetype)initWithURL:(NSURL *)URL
 {
 	self = [super init];
 	if (self == nil) return nil;
-	
-	[self setFilePath:path ? path : [NSTemporaryDirectory() stringByAppendingPathComponent:defaultFilename]];
+
+	_URL = URL ?: [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:defaultFilename];
+
+	return self;
+}
+
+- (instancetype)initWithURL:(NSURL *)URL recordButton:(UIButton *)recordControl playButton:(UIButton *)playControl
+{
+	self = [self initWithURL:URL];
+	if (self == nil) return nil;
+
 	[self setRecordButton:recordControl];
 	[self setPlayButton:playControl];
-	
-	if ([[NSFileManager defaultManager] fileExistsAtPath:[self filePath]]) {
-		[self enterState:DHAudioRecorderStateNotRecordingCanPlay];
-	}
-	else {
-		[self enterState:DHAudioRecorderStateNotRecordingHaveNothing];
-	}
-	
+
 	return self;
 }
 
@@ -63,6 +63,8 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 	[recordButton addTarget:self action:action forControlEvents:triggerEvents];
 	
 	_recordButton = recordButton;
+
+	[self updateState];
 }
 
 - (void)setPlayButton:(UIButton *)playButton
@@ -76,6 +78,17 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 	[playButton addTarget:self action:action forControlEvents:triggerEvents];
 	
 	_playButton = playButton;
+
+	[self updateState];
+}
+
+- (void)updateState {
+	if ([[NSFileManager defaultManager] fileExistsAtPath:[[self URL] path]]) {
+		[self enterState:DHAudioRecorderStateNotRecordingCanPlay];
+		return;
+	}
+
+	[self enterState:DHAudioRecorderStateNotRecordingHaveNothing];
 }
 
 #pragma mark - Actions
@@ -84,7 +97,7 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 {
 	if (!recorder) {
 		NSError *error = nil;
-		recorder = [[AVAudioRecorder alloc] initWithURL:[self fileURL]
+		recorder = [[AVAudioRecorder alloc] initWithURL:[self URL]
 											   settings:@{}
 												  error:&error];
 		if (error) {
@@ -116,7 +129,7 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 - (IBAction)togglePlay:(id)sender
 {
 	if (!player) {
-		player = [[AVAudioPlayer alloc] initWithContentsOfURL:[self fileURL]
+		player = [[AVAudioPlayer alloc] initWithContentsOfURL:[self URL]
 														error:nil];
 		[player setDelegate:self];
 	}
@@ -165,11 +178,6 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 		default:
 			break;
 	}
-}
-
-- (NSURL *)fileURL
-{
-	return [NSURL fileURLWithPath:[self filePath]];
 }
 
 #pragma mark - AVAudioRecorderDelegate

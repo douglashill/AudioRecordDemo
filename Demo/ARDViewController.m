@@ -36,7 +36,7 @@ static NSString * const audioFilename = @"recording.caf";
 	[self setView:[[UIView alloc] init]];
 	[[self view] setBackgroundColor:[UIColor whiteColor]];
 	
-	NSString *audioPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:audioFilename];
+	NSURL *audioURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject] URLByAppendingPathComponent:audioFilename];
 	
 	UIButton *recordButton = [UIButton buttonWithType:UIButtonTypeSystem];
 	[recordButton setTitle:@"Record" forState:UIControlStateNormal];
@@ -51,7 +51,7 @@ static NSString * const audioFilename = @"recording.caf";
 		[[button titleLabel] setFont:[UIFont systemFontOfSize:40]];
 	}
 	
-	[self setRecorder:[[DHAudioRecorder alloc] initWithPath:audioPath recordButton:recordButton playButton:playButton]];
+	[self setRecorder:[[DHAudioRecorder alloc] initWithURL:audioURL recordButton:recordButton playButton:playButton]];
 	
 	[[self view] addSubview:recordButton];
 	[[self view] addSubview:playButton];
