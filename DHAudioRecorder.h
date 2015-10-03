@@ -13,7 +13,7 @@
 /// Designated initialiser
 - (instancetype)initWithPath:(NSString *)path recordButton:(UIButton *)recordControl playButton:(UIButton *)playControl;
 
-/// The button will be selected duing recording. Setting this property automatically adds the receiver’s toggleRecord: action as a target for taps on the button.
+/// The button will be selected during recording. Setting this property automatically adds the receiver’s toggleRecord: action as a target for taps on the button.
 @property (nonatomic, strong) IBOutlet UIButton *recButton;
 
 /// The button will be selected duing playback. Setting this property automatically adds the receiver’s togglePlay: action as a target for taps on the button.
