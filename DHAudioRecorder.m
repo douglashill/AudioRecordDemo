@@ -16,7 +16,7 @@ typedef enum {
 static NSString * const defaultFilename = @"recording.caf";
 static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 
-@interface DHAudioRecorder () <AVAudioPlayerDelegate>
+@interface DHAudioRecorder () <AVAudioPlayerDelegate, AVAudioRecorderDelegate>
 
 @property (nonatomic, copy) NSString *filePath;
 
@@ -91,6 +91,7 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 			NSLog(@"Error initialising recorder: %@", [error localizedDescription]);
 			return;
 		}
+		[recorder setDelegate:self];
 	}
 	
 	if ([recorder isRecording]) {
@@ -171,6 +172,11 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 	return [NSURL fileURLWithPath:[self filePath]];
 }
 
+#pragma mark - AVAudioRecorderDelegate
+
+- (void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error {
+	NSLog(@"Recorder encode error: %@", error);
+}
 
 #pragma mark - AVAudioPlayerDelegate
 
