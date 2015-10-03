@@ -98,6 +98,11 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 		[self enterState:DHAudioRecorderStateNotRecordingCanPlay];
 	}
 	else {
+		NSError *error;
+		if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryRecord error:&error]) {
+			NSLog(@"Could not change audio session category to playback: %@", error);
+		}
+
 		BOOL success = [recorder record];
 		if (!success) {
 			NSLog(@"could not start recording");
@@ -120,7 +125,15 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 		[self enterState:DHAudioRecorderStateNotRecordingCanPlay];
 	}
 	else {
-		[player play];
+		NSError *error;
+		if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error]) {
+			NSLog(@"Could not change audio session category to playback: %@", error);
+		}
+		BOOL const success = [player play];
+		if (!success) {
+			NSLog(@"Could not start playback.");
+			return;
+		}
 		[self enterState:DHAudioRecorderStatePlaying];
 	}
 }
