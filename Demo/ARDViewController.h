@@ -8,6 +8,4 @@
 
 @interface ARDViewController : UIViewController
 
-- (instancetype)init; /// Designated initialiser
-
 @end
