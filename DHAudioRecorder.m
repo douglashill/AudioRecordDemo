@@ -85,7 +85,7 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 	if (!recorder) {
 		NSError *error = nil;
 		recorder = [[AVAudioRecorder alloc] initWithURL:[self fileURL]
-											   settings:nil
+											   settings:@{}
 												  error:&error];
 		if (error) {
 			NSLog(@"Error initialising recorder: %@", [error localizedDescription]);
