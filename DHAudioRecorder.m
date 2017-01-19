@@ -36,6 +36,7 @@ static UIControlEvents const triggerEvents = UIControlEventTouchUpInside;
 	self = [super init];
 	if (self == nil) return nil;
 
+    // TODO: Ought to clean up or make it possible to clean up.
 	_URL = URL ?: [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:defaultFilename];
 
 	return self;
